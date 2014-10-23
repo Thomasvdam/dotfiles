@@ -1,0 +1,11 @@
+# Default editor
+export EDITOR="sublime";
+
+# Remove some commands from history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
+
+# Path for go development.
+export GOPATH=$HOME/Documents/Programming/Go;
+
+# Cask install location
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom";
