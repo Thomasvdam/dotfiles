@@ -19,3 +19,8 @@ else
 	fi;
 fi;
 unset doIt;
+
+# Set up and copy mjolnir preferences
+mkdir -p "$HOME/.mjolnir"
+cp -r "mjolnir/." "$HOME/.mjolnir/"
+echo "Created ~/.mjolnir and copied contents of ./mjolnir."
