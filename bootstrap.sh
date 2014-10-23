@@ -21,6 +21,10 @@ fi;
 unset doIt;
 
 # Set up and copy mjolnir preferences
-mkdir -p "$HOME/.mjolnir"
-cp -r "mjolnir/." "$HOME/.mjolnir/"
-echo "Created ~/.mjolnir and copied contents of ./mjolnir."
+read -p "This may overwrite existing files in your mjolnir directory. Are you sure? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	mkdir -p "$HOME/.mjolnir";
+	cp -r "mjolnir/." "$HOME/.mjolnir/";
+	echo "Created ~/.mjolnir and copied contents of ./mjolnir.";
+fi;
