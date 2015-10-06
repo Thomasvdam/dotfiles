@@ -5,7 +5,10 @@ export EDITOR="sublime";
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
 
 # Make sure brew works nicely with nvm
-$(brew --prefix nvm)/nvm.sh
+source $(brew --prefix nvm)/nvm.sh
+
+# Path for npm
+export NVM_DIR=~/.nvm
 
 # Path for go development
 export GOPATH=$HOME/Documents/Programming/Go;
