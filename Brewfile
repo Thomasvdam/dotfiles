@@ -8,7 +8,7 @@ install lua
 install luarocks
 
 install git
-install node
+install nvm
 
 # Install Cask
 install caskroom/cask/brew-cask

@@ -4,7 +4,10 @@ export EDITOR="sublime";
 # Remove some commands from history
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
 
-# Path for go development.
+# Make sure brew works nicely with nvm
+$(brew --prefix nvm)/nvm.sh
+
+# Path for go development
 export GOPATH=$HOME/Documents/Programming/Go;
 
 # Cask install location
