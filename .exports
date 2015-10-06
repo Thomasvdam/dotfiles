@@ -7,8 +7,11 @@ export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
 # Make sure brew works nicely with nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# Path for npm
+# Path for nvm
 export NVM_DIR=~/.nvm
+
+# Path for node binary
+export PATH=\$PATH:$HOME/.node/bin
 
 # Path for go development
 export GOPATH=$HOME/Documents/Programming/Go;
