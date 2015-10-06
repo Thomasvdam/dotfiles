@@ -7,22 +7,22 @@ update
 install lua
 install luarocks
 
+install git
+install node
+
 # Install Cask
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
 # Install Casks
 cask install dropbox
-cask install totalterminal
 cask install transmission
 cask install flux
 cask install skype
-#cask install slack
 cask install vlc
 cask install sublime-text3
-
-# Install LoL launcher
-#cask install league-of-legends
+cask install postgres
+cask install flash
 
 # Remove old versions
 cleanup
