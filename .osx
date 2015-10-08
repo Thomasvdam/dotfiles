@@ -100,3 +100,5 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
