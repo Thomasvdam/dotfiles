@@ -29,7 +29,7 @@ function setCaffeineIcon(state)
 end
 
 function caffeineClicked()
-    setCaffeineIcon(hs.caffeinate.toggle("displayIdle"))
+    setCaffeineIcon(hs.caffeinate.toggle("systemIdle"))
 end
 
 -- Initally set the icon silently
