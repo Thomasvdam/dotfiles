@@ -3,10 +3,6 @@
 # Ensure latest version is used
 update
 
-# Mjolnir prerequisites
-install lua
-install luarocks
-
 install git
 install nvm
 
@@ -23,6 +19,7 @@ cask install vlc
 cask install sublime-text3
 cask install postgres
 cask install flash
+cask install hammerspoon
 
 # Remove old versions
 cleanup
