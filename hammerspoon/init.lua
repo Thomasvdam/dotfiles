@@ -32,9 +32,10 @@ function caffeineClicked()
     setCaffeineIcon(hs.caffeinate.toggle("displayIdle"))
 end
 
+-- Initally set the icon silently
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
-    setCaffeineIcon(hs.caffeinate.get("displayIdle"))
+    caffeine:setIcon("emblemEmpty.png")
 end
 
 hs.hotkey.bind(mash, "/", function() caffeineClicked() end)

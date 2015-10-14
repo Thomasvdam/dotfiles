@@ -20,7 +20,7 @@ else
 fi;
 unset doIt;
 
-# Set up and copy mjolnir preferences
+# Set up and copy hammerspoon preferences
 read -p "This may overwrite existing files in your hammerspoon directory. Are you sure? (y/n) " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
