@@ -16,10 +16,12 @@ cask install transmission
 cask install flux
 cask install skype
 cask install vlc
-cask install sublime-text3
+cask install atom
 cask install postgres
 cask install flash
 cask install hammerspoon
+cask install beardedspice
+cask install iterm2
 
 # Remove old versions
 cleanup

@@ -1,5 +1,5 @@
 # Default editor
-export EDITOR="sublime";
+export EDITOR="atom";
 
 # Remove some commands from history
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
@@ -9,6 +9,3 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Path for nvm
 export NVM_DIR=~/.nvm
-
-# Cask install location
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom";
