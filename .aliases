@@ -32,9 +32,6 @@ alias week='date +%V'
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Get ip address and copy to clipboard
-alias getip='ipconfig getifaddr en0 | pbcopy'
-
 
 ###############################################################################
 # Hidden Files                                                                #
