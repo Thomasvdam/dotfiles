@@ -9,3 +9,6 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Path for nvm
 export NVM_DIR=~/.nvm
+
+# Export command prompt
+export PS1="[\t]:\[\033[1;97m\]\W $\[\033[0m\] ";
