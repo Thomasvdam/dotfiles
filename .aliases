@@ -40,3 +40,9 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+###############################################################################
+# Downloading YT content. Streaming is expensive                              #
+###############################################################################
+
+alias gethats="youtube-dl https://www.youtube.com/user.HaatFilms/videos"
