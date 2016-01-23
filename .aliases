@@ -45,4 +45,4 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Downloading YT content. Streaming is expensive                              #
 ###############################################################################
 
-alias gethats="youtube-dl https://www.youtube.com/user.HaatFilms/videos"
+alias gethats="youtube-dl https://www.youtube.com/user/HaatFilms/videos"
