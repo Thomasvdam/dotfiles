@@ -59,7 +59,7 @@ local function moveWindow(pos)
 
   -- Set y position
   if pos == "Down" then
-    f.y = max.y / 2 + (max.h / 2)
+    f.y = max.y + (max.h / 2)
   else
     f.y = max.y
   end
