@@ -47,3 +47,4 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 alias gethats="youtube-dl --playlist-end 1 https://www.youtube.com/user/HaatFilms/videos"
 alias getgmod="youtube-dl --playlist-end 1 --match-title gmod https://www.youtube.com/user/BlueXephos"
+alias sound-dl="youtube-dl --write-thumbnail"
