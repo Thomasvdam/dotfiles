@@ -6,6 +6,8 @@ update
 install git
 install nvm
 
+install youtube-dl
+
 # Install Cask
 install caskroom/cask/brew-cask
 tap caskroom/versions
