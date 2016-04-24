@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Default editor
 export EDITOR="atom";
 

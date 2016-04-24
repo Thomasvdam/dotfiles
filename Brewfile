@@ -16,10 +16,8 @@ tap caskroom/versions
 cask install dropbox
 cask install transmission
 cask install flux
-cask install skype
 cask install vlc
 cask install atom
-cask install postgres
 cask install flash
 cask install hammerspoon
 cask install beardedspice
