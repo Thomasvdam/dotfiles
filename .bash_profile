@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Default path.
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin;
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/t.vandam/Library/Application\ Support/Fusetools/Fuse/Android/AndroidSDK/platform-tools;
+export ANDROID_HOME=/Users/t.vandam/Library/Application\ Support/Fusetools/Fuse/Android/AndroidSDK;
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
