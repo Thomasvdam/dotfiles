@@ -22,6 +22,7 @@ cask install flash
 cask install hammerspoon
 cask install beardedspice
 cask install iterm2
+cask install whatsapp
 
 # Remove old versions
 cleanup
