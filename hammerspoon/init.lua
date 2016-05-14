@@ -10,6 +10,9 @@ local cmnd_shift = {"cmd", "shift"}
 -------------------
 hs.window.animationDuration = 0
 
+hs.hints.showTitleThresh = 0
+hs.hints.style = "vimperator"
+
 ------------
 -- Reload --
 ------------
@@ -229,16 +232,20 @@ hs.hotkey.bind(cmnd_alt_shift, "F", function ()
     win:fullscreen()
 end)
 
--- Move focused window a monitor to the left.
+-- Move focused a monitor to the left.
 hs.hotkey.bind(cmnd_shift, "A", function ()
   local win = hs.window.focusedWindow()
   win:moveToScreen(hs.screen({x=-1,y=0}));
 end)
 
--- Move focused window a monitor to the right.
+-- Move focused a monitor to the right.
 hs.hotkey.bind(cmnd_shift, "D", function ()
   local win = hs.window.focusedWindow()
   win:moveToScreen(hs.screen({x=1,y=0}));
+end)
+
+hs.hotkey.bind(cmnd_shift, "H", function()
+  hs.hints.windowHints()
 end)
 
 -- Indicate config is loaded
