@@ -26,5 +26,7 @@ echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	mkdir -p "$HOME/.hammerspoon";
 	cp -r "hammerspoon/." "$HOME/.hammerspoon/";
+	# Extract spaces module into hammerspoon directory.
+	tar -xzf ./spaces-v0.4.tar.gz -C "$HOME/.hammerspoon";
 	echo "Created ~/.hammerspoon and copied contents of ./hammerspoon.";
 fi;
