@@ -1,0 +1,10 @@
+" Remap <escape>
+inoremap jk <ESC>
+
+" Change leader from '\' to spacebar
+let mapleader = "\space"
+
+" My first settings, taken from tutorial
+filetype plugin indent on
+syntax on
+set encoding=utf8

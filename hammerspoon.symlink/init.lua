@@ -36,10 +36,10 @@ end
 local caffeine = hs.menubar.new()
 function setCaffeineIcon(state)
     if state then
-        caffeine:setIcon("emblemFull.png")
+        caffeine:setIcon("~/.hammerspoon/emblemFull.png")
         notify("Caffeinated")
     else
-        caffeine:setIcon("emblemEmpty.png")
+        caffeine:setIcon("~/.hammerspoon/emblemEmpty.png")
         notify("Decaffeinated")
     end
 end
@@ -51,7 +51,7 @@ end
 -- Initally set the icon silently
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
-    caffeine:setIcon("emblemEmpty.png")
+    caffeine:setIcon("~/.hammerspoon/emblemEmpty.png")
 end
 
 hs.hotkey.bind(cmnd_alt_shift, "/", function() caffeineClicked() end)

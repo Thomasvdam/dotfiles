@@ -15,7 +15,7 @@ function getip() {
 	then
 		local ip=`ipconfig getifaddr en0`;
 		printf "Local ip: ";
-	elif [ $# -eq 1 -a $1 == "-e" -o $1 == "--external" ]
+	elif [ "$1" == "-e" -o "$1" == "--external" ]
 	then
 		local ip=`curl -s ipecho.net/plain`;
 		printf "External ip: ";
