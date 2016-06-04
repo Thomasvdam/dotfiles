@@ -232,16 +232,16 @@ hs.hotkey.bind(cmnd_alt_shift, "F", function ()
     win:fullscreen()
 end)
 
--- Move focused a monitor to the left.
+-- Move focused window to the left monitor.
 hs.hotkey.bind(cmnd_shift, "A", function ()
   local win = hs.window.focusedWindow()
   win:moveToScreen(hs.screen({x=-1,y=0}));
 end)
 
--- Move focused a monitor to the right.
+-- Move focused window to the centre monitor.
 hs.hotkey.bind(cmnd_shift, "D", function ()
   local win = hs.window.focusedWindow()
-  win:moveToScreen(hs.screen({x=1,y=0}));
+  win:moveToScreen(hs.screen({x=0,y=0}));
 end)
 
 hs.hotkey.bind(cmnd_shift, "H", function()
