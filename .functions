@@ -9,9 +9,22 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# Display ip address and copy to clipboard
+# Display local ip address and copy to clipboard
 function getip() {
-	local ip=`ipconfig getifaddr en0`;
+	if [ $# -eq 0 ]
+	then
+		local ip=`ipconfig getifaddr en0`;
+		printf "Local ip: ";
+	elif [ $# -eq 1 -a $1 == "-e" -o $1 == "--external" ]
+	then
+		local ip=`curl -s ipecho.net/plain`;
+		printf "External ip: ";
+	else
+		echo "Usage: $0 [-e | --external]";
+		return;
+	fi
+
 	echo $ip;
 	echo $ip | pbcopy;
 }
+
