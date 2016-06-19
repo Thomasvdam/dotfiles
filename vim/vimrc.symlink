@@ -12,5 +12,8 @@ filetype plugin indent on
 syntax on
 set encoding=utf8
 
+" Allow pasting from system clipboard
+set clipboard=unnamed
+
 " Disable default folding for markdown plugin
 let g:vim_markdown_folding_disabled = 1

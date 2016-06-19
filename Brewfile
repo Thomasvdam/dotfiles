@@ -5,8 +5,13 @@ update
 
 install git
 install nvm
-
 install youtube-dl
+
+install vim
+
+# Haskell
+install ghc
+install cabal-installer
 
 # Install Cask
 install caskroom/cask/brew-cask
@@ -23,6 +28,7 @@ cask install hammerspoon
 cask install beardedspice
 cask install iterm2
 cask install whatsapp
+cask install duet
 
 # Remove old versions
 cleanup
