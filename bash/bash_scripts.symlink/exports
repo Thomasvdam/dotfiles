@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Default editor
-export EDITOR="atom";
+export EDITOR="vi";
 
 # Remove some commands from history
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
