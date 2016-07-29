@@ -6,8 +6,14 @@ update
 install git
 install nvm
 install youtube-dl
+install tmux
 
+# Use the latest versions instead of the built in versions
 install vim
+install bash
+
+# Make tmux work with terminal notifier
+install --with-wrap-pbcopy-and-pbpaste reattach-to-user-namespace
 
 # Haskell
 install ghc
