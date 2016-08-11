@@ -5,6 +5,10 @@ export EDITOR="vi";
 
 # Remove some commands from history
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
+export HISTCONTROL=ignoredups;
+
+# Print date and time with history
+export HISTTIMEFORMAT="%h %d %H:%M:%S > ";
 
 # Make sure brew works nicely with nvm
 source $(brew --prefix nvm)/nvm.sh
