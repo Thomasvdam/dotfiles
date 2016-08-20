@@ -13,6 +13,11 @@ hs.window.animationDuration = 0
 hs.hints.showTitleThresh = 0
 hs.hints.style = "vimperator"
 
+---------------
+-- Clipboard --
+---------------
+require "clipboard"
+
 ------------
 -- Reload --
 ------------
