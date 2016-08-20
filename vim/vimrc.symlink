@@ -7,13 +7,22 @@ inoremap jk <ESC>
 " Change leader from '\' to spacebar
 let mapleader = "\space"
 
-" My first settings, taken from tutorial
+" Indentation settings
 filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Some default settings
 syntax on
 set encoding=utf8
+set number
 
 " Allow pasting from system clipboard
 set clipboard=unnamed
+
+" Allow backspace for indents and linebreaks
+set backspace=indent,eol,start
 
 " Disable default folding for markdown plugin
 let g:vim_markdown_folding_disabled = 1
