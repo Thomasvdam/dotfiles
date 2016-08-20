@@ -8,7 +8,6 @@ local hist_size = 25
 local label_length = 40
 -- Should a app clear the pasteboard, do the same
 local honour_clear_content = false
-local paste_on_select = true
 
 local clipboard = hs.menubar.new()
 clipboard:setTooltip("Clipboard Management")
@@ -27,17 +26,11 @@ function setTitle()
 end
 
 function putOnPaste(string, key)
-    if (paste_on_select) then
+   if (key.alt == true) then
         hs.eventtap.keyStrokes(string)
+    else
         pasteboard.setContents(string)
         last_change = pasteboard.changeCount()
-    else
-        if (key.alt == true) then
-            hs.eventtap.keyStrokes(string)
-        else
-            pasteboard.setContents(string)
-            last_change = pasteboard.changeCount()
-        end
     end
 end
 
@@ -81,7 +74,7 @@ populateMenu = function(key)
 
     table.insert(menu_data, {title = "-"})
     table.insert(menu_data, {title = "Clear All", fn = function() clearAll() end })
-    if (key.alt == true or paste_on_select) then
+    if (key.alt == true) then
         table.insert(menu_data, {title = "Direct Paste Mode ✍", disabled=true})
     end
 
