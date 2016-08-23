@@ -4,6 +4,7 @@
 local cmnd_alt_shift = {"cmd", "alt", "shift"}
 local cmnd_alt = {"cmd", "alt"}
 local cmnd_shift = {"cmd", "shift"}
+local ctrl_cmnd = {"ctrl", "cmd"}
 
 -------------------
 -- Configuration --
@@ -251,6 +252,11 @@ end)
 
 hs.hotkey.bind(cmnd_shift, "H", function()
   hs.hints.windowHints()
+end)
+
+-- Open clipboard manager at mouse position
+hs.hotkey.bind(ctrl_cmnd, "V", function()
+    clipboard:popupMenu(hs.mouse.getAbsolutePosition())
 end)
 
 -- Indicate config is loaded

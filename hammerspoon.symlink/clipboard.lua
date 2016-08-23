@@ -9,7 +9,8 @@ local label_length = 40
 -- Should a app clear the pasteboard, do the same
 local honour_clear_content = false
 
-local clipboard = hs.menubar.new()
+-- Do not make it local so we can access it from outside
+clipboard = hs.menubar.new()
 clipboard:setTooltip("Clipboard Management")
 local pasteboard = require("hs.pasteboard")
 local settings = require("hs.settings")
@@ -26,7 +27,7 @@ function setTitle()
 end
 
 function putOnPaste(string, key)
-   if (key.alt == true) then
+   if (key.alt == true or key.ctrl == true) then
         hs.eventtap.keyStrokes(string)
     else
         pasteboard.setContents(string)
@@ -74,7 +75,7 @@ populateMenu = function(key)
 
     table.insert(menu_data, {title = "-"})
     table.insert(menu_data, {title = "Clear All", fn = function() clearAll() end })
-    if (key.alt == true) then
+    if (key.alt == true or key.ctrl == true) then
         table.insert(menu_data, {title = "Direct Paste Mode ✍", disabled=true})
     end
 
