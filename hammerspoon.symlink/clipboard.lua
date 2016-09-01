@@ -27,8 +27,12 @@ function setTitle()
 end
 
 function putOnPaste(string, key)
-   if (key.alt == true or key.ctrl == true) then
+   if (key.alt == true) then
         hs.eventtap.keyStrokes(string)
+    elseif (key.ctrl == true) then
+        pasteboard.setContents(string)
+        last_change = pasteboard.changeCount()
+        hs.eventtap.keyStroke({"cmd"}, "v")
     else
         pasteboard.setContents(string)
         last_change = pasteboard.changeCount()
@@ -75,7 +79,9 @@ populateMenu = function(key)
 
     table.insert(menu_data, {title = "-"})
     table.insert(menu_data, {title = "Clear All", fn = function() clearAll() end })
-    if (key.alt == true or key.ctrl == true) then
+    if (key.alt == true) then
+        table.insert(menu_data, {title = "Write Mode ✍", disabled=true})
+    elseif (key.ctrl == true) then
         table.insert(menu_data, {title = "Direct Paste Mode ✍", disabled=true})
     end
 
