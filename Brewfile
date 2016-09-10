@@ -24,17 +24,28 @@ install caskroom/cask/brew-cask
 tap caskroom/versions
 
 # Install Casks
-cask install dropbox
-cask install transmission
-cask install flux
+
 cask install vlc
+
+# Productivity
+cask install alfred
 cask install atom
-cask install flash
-cask install hammerspoon
-cask install beardedspice
 cask install iterm2
-cask install whatsapp
+cask install hammerspoon
+cask install dropbox
+
+# Utility
+cask install flux
 cask install duet
+cask install beardedspice
+
+# Messaging
+cask install whatsapp
+cask install slack
+
+# Install font
+tap caskroom/fonts
+cask install font-fira-code
 
 # Remove old versions
 cleanup

@@ -13,6 +13,8 @@ readonly TMGB_STATUS_LOCATION='right'
 # Style for tmux-gitbar
 readonly TMGB_STYLE=''
 
+BRANCH_SYMBOL="⥮"
+
 # Status line format string definition.
 # It controls what tmux-gitbar will show in the status line. It accepts
 # any keyword or variable Tmux originally accepts, plus these ones:
