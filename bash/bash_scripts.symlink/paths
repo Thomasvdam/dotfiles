@@ -4,4 +4,4 @@
 export PATH=$PATH:/Users/t.vandam/Library/Application\ Support/Fusetools/Fuse/Android/AndroidSDK/platform-tools;
 
 # Add casks to path
-export PATH=$PATH:/usr/local/Caskroom;
+export PATH=$PATH:$(brew --repository)/Caskroom;
