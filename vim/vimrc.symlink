@@ -26,3 +26,18 @@ set backspace=indent,eol,start
 
 " Disable default folding for markdown plugin
 let g:vim_markdown_folding_disabled = 1
+
+" Sensible defaults for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Set keybindings for type checking from vim-hdevtools
+au FileType haskell nnoremap <buffer> <C-i> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <C-k> :HdevtoolsClear<CR>
+

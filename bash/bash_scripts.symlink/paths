@@ -5,3 +5,7 @@ export PATH=$PATH:/Users/t.vandam/Library/Application\ Support/Fusetools/Fuse/An
 
 # Add casks to path
 export PATH=$PATH:$(brew --repository)/Caskroom;
+
+# Add cabal binaries to path
+export PATH=$PATH:~/.cabal/bin;
+
