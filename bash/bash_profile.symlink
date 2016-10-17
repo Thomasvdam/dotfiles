@@ -11,7 +11,7 @@ done;
 unset file;
 
 # Activate the currently selected version of node.
-nvm use node;
+nvm use default;
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
