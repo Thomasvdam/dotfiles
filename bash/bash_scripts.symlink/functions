@@ -28,3 +28,7 @@ function getip() {
 	echo $ip | pbcopy;
 }
 
+function mkdird() {
+    mkdir $1 && cd $_;
+}
+
