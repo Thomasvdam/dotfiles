@@ -17,7 +17,7 @@ source $(brew --prefix nvm)/nvm.sh
 export NVM_DIR=~/.nvm
 
 # Export command prompt
-export PS1="[\t]:\[\033[1;97m\]\W 〉\[\033[0m\] ";
+export PS1="[\t]:\[\033[1;97m\]\W ❯\[\033[0m\] ";
 
 # Export caskroom location
 export HOMEBREW_CASK_OPTS="--caskroom=$(brew --repository)/Caskroom";
