@@ -19,6 +19,9 @@ set-option -g default-command "which reattach-to-user-namespace > /dev/null && r
 # Use vim bindings
 setw -g mode-keys vi
 
+# Enable mouse scrolling and other actions
+set -g mouse on
+
 # Bind reload config to prefix - r
 bind r source-file ~/.tmux.conf
 
