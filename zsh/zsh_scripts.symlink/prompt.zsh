@@ -85,3 +85,9 @@ prompt_purity_setup() {
 
 prompt_purity_setup "$@"
 
+# Since I can't get it to work from the tmux gitbar config do it here
+# until I have time to figure out what I'm doing wrong
+if [[ -n "$ZSH_VERSION" && -n "$TMUX_GITBAR_DIR" ]]; then
+    updateGitbarCmd() { $TMUX_GITBAR_DIR/update-gitbar };
+    precmd_functions=(updateGitbarCmd);
+fi
