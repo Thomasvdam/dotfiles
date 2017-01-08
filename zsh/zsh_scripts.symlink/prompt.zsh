@@ -89,5 +89,5 @@ prompt_purity_setup "$@"
 # until I have time to figure out what I'm doing wrong
 if [[ -n "$ZSH_VERSION" && -n "$TMUX_GITBAR_DIR" ]]; then
     updateGitbarCmd() { $TMUX_GITBAR_DIR/update-gitbar };
-    precmd_functions=(updateGitbarCmd);
+    add-zsh-hook precmd updateGitbarCmd;
 fi
