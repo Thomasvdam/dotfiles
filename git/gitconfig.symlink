@@ -11,3 +11,6 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+[alias]
+        logd = log --all --pretty=format:'%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s' --date=format:'%a %b %d'
+        glog = log --all --decorate --oneline --graph
