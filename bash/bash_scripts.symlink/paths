@@ -9,3 +9,5 @@ export PATH=$PATH:$(brew --repository)/Caskroom;
 # Add cabal binaries to path
 export PATH=$PATH:~/.cabal/bin;
 
+# Add rust tools to path
+export PATH="$HOME/.cargo/bin:$PATH"
