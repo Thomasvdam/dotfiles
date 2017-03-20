@@ -16,6 +16,11 @@ do
     source $file
 done
 
+# load local scripts should they be present
+if [ -f $HOME/.zshlocals ]; then
+    source $HOME/.zshlocals
+fi
+
 #initialise autocomplete
 autoload -U compinit
 compinit
