@@ -244,10 +244,22 @@ hs.hotkey.bind(cmnd_shift, "A", function ()
   win:moveToScreen(hs.screen({x=-1,y=0}));
 end)
 
+-- Move focused window to the upper monitor.
+hs.hotkey.bind(cmnd_shift, "W", function ()
+  local win = hs.window.focusedWindow()
+  win:moveToScreen(hs.screen({x=0,y=-1}));
+end)
+
 -- Move focused window to the centre monitor.
-hs.hotkey.bind(cmnd_shift, "D", function ()
+hs.hotkey.bind(cmnd_shift, "S", function ()
   local win = hs.window.focusedWindow()
   win:moveToScreen(hs.screen({x=0,y=0}));
+end)
+
+-- Move focused window to the right monitor.
+hs.hotkey.bind(cmnd_shift, "D", function ()
+  local win = hs.window.focusedWindow()
+  win:moveToScreen(hs.screen({x=1,y=0}));
 end)
 
 hs.hotkey.bind(cmnd_shift, "H", function()
