@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
