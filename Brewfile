@@ -7,6 +7,7 @@ install git
 install nvm
 install youtube-dl
 install tmux
+install the_silver_searcher
 
 # Use the latest versions instead of the built in versions
 install vim
