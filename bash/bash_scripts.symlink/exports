@@ -3,6 +3,9 @@
 # Default editor
 export EDITOR="vi";
 
+# Default less settings
+export LESS="-FRX"
+
 # Remove some commands from history
 export HISTIGNORE="ls:l:la:cd*:pwd:exit:date:* --help";
 export HISTCONTROL=ignoredups;
