@@ -38,6 +38,11 @@ alias gs="git status"
 alias gf="git fetch --prune --tags"
 alias glog="git glog"
 
+# ag
+######################
+
+alias ag="ag --pager 'less'"
+
 # Hidden files
 ######################
 
