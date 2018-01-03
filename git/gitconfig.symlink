@@ -26,5 +26,3 @@
         old = red bold
         new = green bold
         whitespace = red reverse
-[interactive]
-        diffFilter = diff-so-fancy | less
