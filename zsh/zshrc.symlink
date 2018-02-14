@@ -32,7 +32,6 @@ done
 
 # initialise prompt (pure)
 autoload -U promptinit; promptinit
-prompt pure
 
 # Activate the current default version of node
 nvm use default
