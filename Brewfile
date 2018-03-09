@@ -7,7 +7,7 @@ install git
 install nvm
 install youtube-dl
 install tmux
-install the_silver_searcher
+install ripgrep
 install fd
 install diff-so-fancy
 
