@@ -8,6 +8,7 @@ install nvm
 install youtube-dl
 install tmux
 install the_silver_searcher
+install fd
 install diff-so-fancy
 
 # Use the latest versions instead of the built in versions
