@@ -36,32 +36,6 @@ local function notify(title, text)
   hs.notify.new({title = title, informativeText = text}):send()
 end
 
-----------------------------
--- Caffeine functionality --
-----------------------------
-local caffeine = hs.menubar.new()
-function setCaffeineIcon(state)
-    if state then
-        caffeine:setIcon("~/.hammerspoon/emblemFull.png")
-        notify("Caffeinated")
-    else
-        caffeine:setIcon("~/.hammerspoon/emblemEmpty.png")
-        notify("Decaffeinated")
-    end
-end
-
-function caffeineClicked()
-    setCaffeineIcon(hs.caffeinate.toggle("systemIdle"))
-end
-
--- Initally set the icon silently
-if caffeine then
-    caffeine:setClickCallback(caffeineClicked)
-    caffeine:setIcon("~/.hammerspoon/emblemEmpty.png")
-end
-
-hs.hotkey.bind(cmnd_alt_shift, "/", function() caffeineClicked() end)
-
 ---------------------------------
 -- Window Management Functions --
 ---------------------------------
