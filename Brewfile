@@ -33,7 +33,7 @@ cask install vlc
 
 # Productivity
 cask install alfred
-cask install atom
+cask install visual-studio-code
 cask install iterm2
 cask install hammerspoon
 cask install dropbox
