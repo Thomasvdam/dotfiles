@@ -10,6 +10,7 @@ install tmux
 install ripgrep
 install fd
 install diff-so-fancy
+install bat
 
 # Use the latest versions instead of the built in versions
 install vim
