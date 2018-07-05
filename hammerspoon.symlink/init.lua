@@ -36,6 +36,19 @@ local function notify(title, text)
   hs.notify.new({title = title, informativeText = text}):send()
 end
 
+-------------------------
+-- Undocumented Spaces --
+-------------------------
+local spacesModule = require("spaces")
+
+hs.hotkey.bind({"ctrl"}, "A", function ()
+  spacesModule.moveToNextSpace("left")
+end)
+
+hs.hotkey.bind({"ctrl"}, "D", function ()
+  spacesModule.moveToNextSpace("right")
+end)
+
 ---------------------------------
 -- Window Management Functions --
 ---------------------------------
