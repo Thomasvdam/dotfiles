@@ -243,22 +243,6 @@ prompt_pure_async_git_dirty() {
 	return $?
 }
 
-prompt_pure_async_git_fetch() {
-	setopt localoptions noshwordsplit
-	# use cd -q to avoid side effects of changing directory, e.g. chpwd hooks
-	builtin cd -q $1
-
-	# set GIT_TERMINAL_PROMPT=0 to disable auth prompting for git fetch (git 2.3+)
-	export GIT_TERMINAL_PROMPT=0
-	# set ssh BachMode to disable all interactive ssh password prompting
-	export GIT_SSH_COMMAND=${GIT_SSH_COMMAND:-"ssh -o BatchMode=yes"}
-
-	command git -c gc.auto=0 fetch &>/dev/null || return 99
-
-	# check arrow status after a successful git fetch
-	prompt_pure_async_git_arrows $1
-}
-
 prompt_pure_async_git_arrows() {
 	setopt localoptions noshwordsplit
 	builtin cd -q $1
@@ -311,12 +295,6 @@ prompt_pure_async_refresh() {
 	fi
 
 	async_job "prompt_pure" prompt_pure_async_git_arrows $PWD
-
-	# do not preform git fetch if it is disabled or working_tree == HOME
-	if (( ${PURE_GIT_PULL:-1} )) && [[ $working_tree != $HOME ]]; then
-		# tell worker to do a git fetch
-		async_job "prompt_pure" prompt_pure_async_git_fetch $PWD
-	fi
 
 	# if dirty checking is sufficiently fast, tell worker to check it again, or wait for timeout
 	integer time_since_last_dirty_check=$(( EPOCHSECONDS - ${prompt_pure_git_last_dirty_check_timestamp:-0} ))
