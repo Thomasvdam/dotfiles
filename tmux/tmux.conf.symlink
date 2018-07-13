@@ -1,9 +1,9 @@
 # Tmux settings
 
 # Remap prefix to ctrl + a
-set -g prefix C-Space
-unbind C-Space
-bind C-Space send-prefix
+unbind C-b
+set-option -g prefix `
+bind ` send-prefix
 
 # Set colors
 set-option -g default-terminal "screen-256color"
