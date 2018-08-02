@@ -7,10 +7,13 @@ install git
 install nvm
 install youtube-dl
 install tmux
-install ripgrep
-install fd
-install diff-so-fancy
-install bat
+install diff-so-fancy # Prettier Git diffs
+
+# Replace all the tools with rust versions
+install ripgrep # Better grep
+install fd # Better find
+install bat # Better cat
+install exa # Better ls
 
 # Use the latest versions instead of the built in versions
 install vim
