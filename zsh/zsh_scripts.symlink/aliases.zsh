@@ -25,6 +25,7 @@ alias l="exa -lhF"
 
 # List all files colorized in long format, including dot files
 alias la="exa -lhaF"
+alias ll="la"
 
 # ls
 ######################
