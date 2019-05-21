@@ -33,6 +33,7 @@ tap caskroom/versions
 # Install Casks
 
 cask install vlc
+cask install karabiner-elements
 
 # Productivity
 cask install alfred
