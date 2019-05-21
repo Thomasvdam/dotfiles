@@ -33,8 +33,5 @@ done
 # initialise prompt (pure)
 autoload -U promptinit; promptinit
 
-# Activate the current default version of node
-nvm use default
-
 unset config_files
 

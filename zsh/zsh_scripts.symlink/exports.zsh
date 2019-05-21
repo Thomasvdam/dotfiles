@@ -4,9 +4,8 @@ export EDITOR="vi"
 # Default less settings
 export LESS="-FRX"
 
-# Make brew work nicely with nvm
-source $(brew --prefix nvm)/nvm.sh
-
 # nvm path
 export NVM_DIR=~/.nvm
 
+# Make brew work nicely with nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
