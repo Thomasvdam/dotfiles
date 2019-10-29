@@ -4,9 +4,6 @@
 [submodule "vim/vim.symlink/bundle/vim-markdown"]
 	path = vim/vim.symlink/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "tmux/tmux.symlink/tmux-gitbar"]
-	path = tmux/tmux.symlink/tmux-gitbar
-	url = https://github.com/Thomasvdam/tmux-gitbar.git
 [submodule "vim/vim.symlink/bundle/vim-editorconfig"]
 	path = vim/vim.symlink/bundle/vim-editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git

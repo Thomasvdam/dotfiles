@@ -7,6 +7,7 @@ install git
 install nvm
 install youtube-dl
 install tmux
+install starship # fancy prompt
 install diff-so-fancy # Prettier Git diffs
 
 # Replace all the tools with rust versions

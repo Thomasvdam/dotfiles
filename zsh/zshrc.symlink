@@ -35,3 +35,5 @@ autoload -U promptinit; promptinit
 
 unset config_files
 
+eval "$(starship init zsh)"
+

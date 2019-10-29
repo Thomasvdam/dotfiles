@@ -49,10 +49,6 @@ bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "pbcopy"
 set -g set-titles on
 set -g set-titles-string '#(whoami) :: #h :: #S'
 
-# Add tmux-gitbar
-TMUX_GITBAR_DIR="$HOME/.tmux/tmux-gitbar"
-source-file "$HOME/.tmux/tmux-gitbar/tmux-gitbar.tmux"
-
 ######################
 ### DESIGN CHANGES ###
 ######################
