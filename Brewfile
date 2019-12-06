@@ -1,60 +1,44 @@
 # Thomas' brewfile
 
-# Ensure latest version is used
-update
-
-install git
-install nvm
-install youtube-dl
-install tmux
-install starship # fancy prompt
-install diff-so-fancy # Prettier Git diffs
+brew "git"
+brew "nvm"
+brew "youtube-dl"
+brew "tmux"
+brew "starship" # fancy prompt
+brew "diff-so-fancy" # Prettier Git diffs
 
 # Replace all the tools with rust versions
-install ripgrep # Better grep
-install fd # Better find
-install bat # Better cat
-install exa # Better ls
+brew "ripgrep" # Better grep
+brew "fd" # Better find
+brew "bat" # Better cat
+brew "exa" # Better ls
 
 # Use the latest versions instead of the built in versions
-install vim
-install bash
+brew "vim"
 
 # Make tmux work with terminal notifier
-install --with-wrap-pbcopy-and-pbpaste reattach-to-user-namespace
+brew "reattach-to-user-namespace"
 
 # Haskell
-install ghc
-install cabal-installer
+brew "ghc"
+brew "cabal-install"
 
-# Install Cask
-install caskroom/cask/brew-cask
-tap caskroom/versions
-
-# Install Casks
-
-cask install vlc
-cask install karabiner-elements
+# Casks don't work well through the Brewfile, do these by hand
+#cask install karabiner-elements
 
 # Productivity
-cask install alfred
-cask install visual-studio-code
-cask install iterm2
-cask install hammerspoon
-cask install dropbox
+#cask install alfred
+#cask install visual-studio-code
+#cask install iterm2
+#cask install hammerspoon
+#cask install dropbox
 
 # Utility
-cask install flux
-cask install duet
-cask install beardedspice
+#cask install flux
 
 # Messaging
-cask install whatsapp
-cask install slack
-
-# Install font
-tap caskroom/fonts
-cask install font-fira-code
+#cask install whatsapp
+#cask install slack
 
 # Remove old versions
-cleanup
+#cleanup
