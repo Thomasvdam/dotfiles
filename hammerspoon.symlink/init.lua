@@ -212,29 +212,29 @@ hs.hotkey.bind(cmnd_alt_shift, "F", function ()
     win:fullscreen()
 end)
 
--- Move focused window to the left monitor.
-hs.hotkey.bind(ctrl_cmnd, "A", function ()
-  local win = hs.window.focusedWindow()
-  win:moveToScreen(hs.screen({x=-1,y=0}));
-end)
+-- -- Move focused window to the left monitor.
+-- hs.hotkey.bind(ctrl_cmnd, "A", function ()
+--   local win = hs.window.focusedWindow()
+--   win:moveToScreen(hs.screen({x=-1,y=0}));
+-- end)
 
--- Move focused window to the upper monitor.
-hs.hotkey.bind(ctrl_cmnd, "W", function ()
-  local win = hs.window.focusedWindow()
-  win:moveToScreen(hs.screen({x=0,y=-1}));
-end)
+-- -- Move focused window to the upper monitor.
+-- hs.hotkey.bind(ctrl_cmnd, "W", function ()
+--   local win = hs.window.focusedWindow()
+--   win:moveToScreen(hs.screen({x=0,y=-1}));
+-- end)
 
--- Move focused window to the centre monitor.
-hs.hotkey.bind(ctrl_cmnd, "S", function ()
-  local win = hs.window.focusedWindow()
-  win:moveToScreen(hs.screen({x=0,y=0}));
-end)
+-- -- Move focused window to the centre monitor.
+-- hs.hotkey.bind(ctrl_cmnd, "S", function ()
+--   local win = hs.window.focusedWindow()
+--   win:moveToScreen(hs.screen({x=0,y=0}));
+-- end)
 
--- Move focused window to the right monitor.
-hs.hotkey.bind(ctrl_cmnd, "D", function ()
-  local win = hs.window.focusedWindow()
-  win:moveToScreen(hs.screen({x=1,y=0}));
-end)
+-- -- Move focused window to the right monitor.
+-- hs.hotkey.bind(ctrl_cmnd, "D", function ()
+--   local win = hs.window.focusedWindow()
+--   win:moveToScreen(hs.screen({x=1,y=0}));
+-- end)
 
 hs.hotkey.bind(cmnd_shift, "H", function()
   hs.hints.windowHints()
