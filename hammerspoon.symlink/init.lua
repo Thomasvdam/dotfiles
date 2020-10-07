@@ -55,7 +55,7 @@ end
 -- |        |  HERE  |
 -- |        |        |
 -- +-----------------+
-function hs.window.right(win)
+function right(win)
   local targetFrame = hs.screen.copyFrame(win:screen())
   targetFrame.x = targetFrame.x + (targetFrame.w/2)
   targetFrame.w = targetFrame.w/2
@@ -67,7 +67,7 @@ end
 -- |  HERE  |        |
 -- |        |        |
 -- +-----------------+
-function hs.window.left(win)
+function left(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   targetFrame.w = targetFrame.w/2
   win:setFrame(targetFrame)
@@ -78,7 +78,7 @@ end
 -- +-----------------+
 -- |                 |
 -- +-----------------+
-function hs.window.up(win)
+function up(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   targetFrame.h = targetFrame.h/2
   win:setFrame(targetFrame)
@@ -89,7 +89,7 @@ end
 -- +-----------------+
 -- |      HERE       |
 -- +-----------------+
-function hs.window.down(win)
+function down(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   targetFrame.y = targetFrame.y + targetFrame.h/2
   targetFrame.h = targetFrame.h/2
@@ -101,7 +101,7 @@ end
 -- +--------+        |
 -- |                 |
 -- +-----------------+
-function hs.window.upLeft(win)
+function upLeft(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   targetFrame.w = targetFrame.w/2
   targetFrame.h = targetFrame.h/2
@@ -113,7 +113,7 @@ end
 -- +--------+        |
 -- |  HERE  |        |
 -- +-----------------+
-function hs.window.downLeft(win)
+function downLeft(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   win:setFrame({
     x = targetFrame.x,
@@ -128,7 +128,7 @@ end
 -- |        +--------|
 -- |        |  HERE  |
 -- +-----------------+
-function hs.window.downRight(win)
+function downRight(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   win:setFrame({
     x = targetFrame.x + targetFrame.w/2,
@@ -143,7 +143,7 @@ end
 -- |        +--------|
 -- |                 |
 -- +-----------------+
-function hs.window.upRight(win)
+function upRight(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   win:setFrame({
     x = targetFrame.x + targetFrame.w/2,
@@ -158,7 +158,7 @@ end
 -- |       HERE      |
 -- |                 |
 -- +-----------------+
-function hs.window.fullscreen(win)
+function fullscreen(win)
   local targetFrame = hs.screen.copyFrame(win:screen(), false)
   win:setFrame(targetFrame)
 end
@@ -169,47 +169,47 @@ end
 ---------------------
 hs.hotkey.bind(cmnd_alt_shift, "Right", function ()
     local win = hs.window.focusedWindow()
-    win:right()
+    right(win)
 end)
 
 hs.hotkey.bind(cmnd_alt_shift, "Left", function ()
     local win = hs.window.focusedWindow()
-    win:left()
+    left(win)
 end)
 
 hs.hotkey.bind(cmnd_alt_shift, "Up", function ()
     local win = hs.window.focusedWindow()
-    win:up()
+    up(win)
 end)
 
 hs.hotkey.bind(cmnd_alt_shift, "Down", function ()
     local win = hs.window.focusedWindow()
-    win:down()
+    down(win)
 end)
 
 hs.hotkey.bind(cmnd_alt, "Right", function ()
     local win = hs.window.focusedWindow()
-    win:downRight()
+    downRight(win)
 end)
 
 hs.hotkey.bind(cmnd_alt, "Left", function ()
     local win = hs.window.focusedWindow()
-    win:upLeft()
+    upLeft(win)
 end)
 
 hs.hotkey.bind(cmnd_alt, "Up", function ()
     local win = hs.window.focusedWindow()
-    win:upRight()
+    upRight(win)
 end)
 
 hs.hotkey.bind(cmnd_alt, "Down", function ()
     local win = hs.window.focusedWindow()
-    win:downLeft()
+    downLeft(win)
 end)
 
 hs.hotkey.bind(cmnd_alt_shift, "F", function ()
     local win = hs.window.focusedWindow()
-    win:fullscreen()
+    fullscreen(win)
 end)
 
 -- -- Move focused window to the left monitor.
