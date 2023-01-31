@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# Export android home
-export ANDROID_HOME=/Users/t.vandam/Library/Application\ Support/Fusetools/Fuse/Android/AndroidSDK;
-
-# Add tools to path

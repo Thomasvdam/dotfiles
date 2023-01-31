@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# Taken from https://github.com/holman/dotfiles/blob/master/osx/set-defaults.sh
 
 cd "$(dirname "${BASH_SOURCE}")";
 DOTFILES_ROOT=$(pwd -P)

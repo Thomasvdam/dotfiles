@@ -80,6 +80,3 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Update brew and installed casks
 alias update="brew update && brew upgrade && brew cleanup"
 
-# Youtube-dl shortcuts
-######################
-alias sound-dl="youtube-dl --write-thumbnail"
