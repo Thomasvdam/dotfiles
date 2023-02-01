@@ -19,5 +19,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
+autoload -U compinit; compinit
+
 bindkey "^R" history-incremental-pattern-search-backward
 
