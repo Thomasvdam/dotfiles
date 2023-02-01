@@ -27,6 +27,7 @@ brew "hammerspoon"
 brew "dropbox"
 brew "todoist"
 brew "google-chrome"
+brew "chrysalis"
 
 # Messaging
 brew "slack"
