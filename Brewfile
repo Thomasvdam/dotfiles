@@ -7,6 +7,9 @@ brew "starship" # fancy prompt
 brew "diff-so-fancy" # Prettier Git diffs
 brew "antigen" # zsh plugin manager
 
+# Because setting up and managing node versions is a pain
+brew "volta" # Better nvm
+
 # Replace some tools with rust versions
 brew "ripgrep" # Better grep
 brew "fd" # Better find

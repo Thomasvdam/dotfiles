@@ -6,3 +6,5 @@ export LESS="-FRX"
 
 export STARSHIP_CONFIG=~/.starship.toml
 
+export VOLTA_HOME=~/.volta
+
