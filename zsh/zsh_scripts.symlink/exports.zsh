@@ -8,3 +8,6 @@ export STARSHIP_CONFIG=~/.starship.toml
 
 export VOLTA_HOME=~/.volta
 
+# Since we're installing GPG through Homebrew we need to set this manually
+export GPG_TTY=$(tty)
+

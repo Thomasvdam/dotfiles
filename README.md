@@ -18,6 +18,15 @@ You might want to symlink the partition from your home directory, but not a hard
 9. Now it's time to bootstrap all the config files and pollute the home directory! Given that we installed all the binaries in previous steps you should now be ok to boot up `Alacritty` and dump the terminal session used to get to this point.
 10. If anything goes wrong past me apologises but you're on your own now. :)
 
+## Setup GPG
+
+To avoid having to download the GPG suite which prompts for signing up every occasion we install GPG through homebrew and set it up ourselves. This includes setting an ENV variable as well as downloading and configuring one extra dependency to handle the pint entry. Why this doesn't work out of the box I don't know.
+
+```sh
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
+```
+
 ## Inspiration & Sources
 
 Initial work mostly based on the work of Mathias Bynens: https://github.com/mathiasbynens/dotfiles  

@@ -17,6 +17,10 @@ brew "bat" # Better cat
 brew "exa" # Better ls
 brew "tealdeer" # Faster but simpler man pages
 
+# GPG tooling
+brew "gpg"
+brew "pinentry-mac"
+
 ## Casks
 
 # Productivity
