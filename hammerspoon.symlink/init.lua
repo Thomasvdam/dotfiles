@@ -19,6 +19,11 @@ hs.hints.style = "vimperator"
 ---------------
 require "clipboard"
 
+-------------------
+-- Atreus Layers --
+-------------------
+require "atreus_layer"
+
 ------------
 -- Reload --
 ------------
