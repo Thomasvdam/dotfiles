@@ -7,7 +7,7 @@ local hist_size = 25
 -- Max no. of characters to display. Longer gets cut off with ...
 local label_length = 40
 -- Should a app clear the pasteboard, do the same
-local honour_clear_content = false
+local honour_clear_content = true
 
 -- Do not make it local so we can access it from outside
 clipboard = hs.menubar.new()

@@ -7,7 +7,7 @@
 local layer_info = hs.menubar.new()
 layer_info:setTooltip("Active Keyboard Layer")
 
-function setTitle(layer_name, description)
+local function setTitle(layer_name, description)
     layer_info:setTitle(layer_name)
     layer_info:setTooltip("Active Layer: "..description)
 end
