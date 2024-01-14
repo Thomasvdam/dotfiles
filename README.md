@@ -43,7 +43,7 @@ Just some notes because it's not a frequent occurence and I don't want to spend 
 1. Attach cold storage that holds the secret of the 'main' key. (If it's not on cold storage than why bother with all this? :D )
 2. `gpg --import <PATH_TO_MAIN_SECRET>`. Enter the passphrase assoctiated with the key.
 3. `gpg --edit-key <KEY_ID>`. This will open the `gpg` prompt.
-4. `> key <SUBKEY_INDEX>`. Select the key you want to extend.
+4. `> key <SUBKEY_INDEX>`. Select the key you want to extend. You'll want to select the encryption and signing subkeys.
 5. `> expire`. Follow the prompts to set the new expiry date.
 6. `> save`. Saves the new key info and exits the `gpg` prompt.
 7. `gpg --delete-secret-keys <KEY_ID>`. Confirm the prompts.
