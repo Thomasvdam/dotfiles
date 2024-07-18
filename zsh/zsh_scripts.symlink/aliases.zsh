@@ -21,10 +21,10 @@ alias cat=bat
 ######################
 
 # List all files colorized in long format
-alias l="exa -lhF"
+alias l="eza -lhF"
 
 # List all files colorized in long format, including dot files
-alias la="exa -lhaF"
+alias la="eza -lhaF"
 alias ll="la"
 
 # ls

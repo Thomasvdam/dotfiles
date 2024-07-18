@@ -16,7 +16,7 @@ brew "go"
 brew "ripgrep" # Better grep
 brew "fd" # Better find
 brew "bat" # Better cat
-brew "exa" # Better ls
+brew "eza" # Better ls
 brew "tealdeer" # Faster but simpler man pages
 
 # GPG tooling
