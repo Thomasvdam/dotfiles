@@ -17,6 +17,7 @@ set expandtab
 syntax on
 set encoding=utf8
 set number
+set title
 
 " Allow pasting from system clipboard
 set clipboard=unnamed
