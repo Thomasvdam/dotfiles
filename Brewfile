@@ -4,7 +4,7 @@ brew "vim"
 
 # Upgrade terminal experience
 brew "starship" # fancy prompt
-brew "diff-so-fancy" # Prettier Git diffs
+brew "git-delta" # Prettier Git diffs
 brew "antigen" # zsh plugin manager
 
 # Because setting up and managing node versions is a pain
