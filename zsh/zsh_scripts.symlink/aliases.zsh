@@ -49,6 +49,9 @@ alias gf="git fetch --prune --tags"
 alias glog="git glog"
 alias gco="git checkout -b"
 alias grc="git rebase --continue"
+alias gap="git add -p"
+alias gpf="git push -f"
+alias gpo="git push origin HEAD -u"
 
 # rg
 ######################
