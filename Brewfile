@@ -17,6 +17,8 @@ brew "ripgrep" # Better grep
 brew "fd" # Better find
 brew "bat" # Better cat
 brew "eza" # Better ls
+brew "zoxide" # Better cd
+brew "fzf" # Fuzzy finder
 brew "tealdeer" # Faster but simpler man pages
 
 # GPG tooling

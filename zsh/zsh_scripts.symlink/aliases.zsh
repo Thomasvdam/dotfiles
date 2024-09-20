@@ -1,11 +1,11 @@
 # Reload config file
 alias reload!='. ~/.zshrc'
 
-# cd
+# zoxide
 ######################
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias ..="z .."
+alias ...="z ../.."
+alias ....="z ../../.."
 
 # vim
 ######################

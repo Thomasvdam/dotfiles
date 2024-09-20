@@ -29,7 +29,7 @@ function getip() {
 }
 
 function mkdird() {
-    mkdir $1 && cd $_;
+    mkdir $1 && z $_;
 }
 
 function set_window_title() {
