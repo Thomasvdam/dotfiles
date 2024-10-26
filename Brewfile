@@ -37,6 +37,7 @@ brew "dropbox"
 brew "todoist"
 brew "google-chrome"
 brew "chrysalis"
+brew "iina"
 
 # Messaging
 brew "slack"
