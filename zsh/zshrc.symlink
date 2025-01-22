@@ -28,3 +28,6 @@ unset config_files
 eval "$(starship init zsh)"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/Users/thomasvandam/.bun/_bun" ] && source "/Users/thomasvandam/.bun/_bun"
