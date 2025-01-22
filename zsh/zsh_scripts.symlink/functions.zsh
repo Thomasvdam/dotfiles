@@ -9,6 +9,11 @@ function server() {
 	python3 -m http.server "$port";
 }
 
+# Opens cursor in the passed directory, or the current directory if no argument is passed
+function curs() {
+	cursor ${1:-.}
+}
+
 # Display local or external ip address and copy to clipboard
 function getip() {
 	if [ $# -eq 0 ]
