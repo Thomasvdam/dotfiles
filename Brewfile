@@ -10,6 +10,8 @@ brew "antigen" # zsh plugin manager
 # Because setting up and managing node versions is a pain
 brew "volta" # Better nvm
 
+brew biome # Performant and configurable linter/formatter with sane defaults
+
 brew "go"
 
 # Replace some tools with rust versions
