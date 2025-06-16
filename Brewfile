@@ -13,6 +13,7 @@ brew "volta" # Better nvm
 brew biome # Performant and configurable linter/formatter with sane defaults
 
 brew "go"
+brew "graphviz" # Used for memory debugging with Go's pprof
 
 # Replace some tools with rust versions
 brew "ripgrep" # Better grep
