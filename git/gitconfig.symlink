@@ -22,3 +22,5 @@
         gpgsign = true
 [interactive]
         diffFilter = delta --color-only --features=interactive
+[rebase]
+        autoSquash = true

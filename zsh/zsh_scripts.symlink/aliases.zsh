@@ -52,6 +52,8 @@ alias grc="git rebase --continue"
 alias gap="git add -p"
 alias gpf="git push -f"
 alias gpo="git push origin HEAD -u"
+alias gcma="git commit --amend"
+alias gcmf="git commit --fixup"
 
 # rg
 ######################
