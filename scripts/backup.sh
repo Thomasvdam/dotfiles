@@ -29,3 +29,5 @@ rsync -avrzqPh --log-file=./backup.log $SOURCE $DESTINATION \
     --exclude '.TemporaryItems' \
     --exclude '.fseventsd'
 echo "Backup completed"
+
+diskutil unmount $DESTINATION
