@@ -33,7 +33,7 @@ brew "pinentry-mac"
 # Productivity
 brew "alfred"
 brew "visual-studio-code"
-brew "alacritty"
+cask "ghostty"
 # brew "hammerspoon"
 brew "maccy"
 brew "dropbox"

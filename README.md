@@ -16,7 +16,7 @@ You might want to symlink the partition from your home directory, but not a hard
 7. Run the Homebrew installer in the `homebrew` directory.
 8. Install a whole bunch of packages and binaries by running `brew bundle` from the root of the repository. This should set you up with all of the frequenctly used command line tools as well as applications.
 9. Install the `JetBrains Mono` and `JetBrainsMono NF` (Nerd Font). If anything goes wrong with fonts later double check the names in `Font Book` and whatever config file the application giving issues uses.
-10. Now it's time to bootstrap all the config files and pollute the home directory! Given that we installed all the binaries in previous steps you should now be ok to boot up `Alacritty` and dump the terminal session used to get to this point.
+10. Now it's time to bootstrap all the config files and pollute the home directory! Given that we installed all the binaries in previous steps you should now be ok to boot up `Ghostty` and dump the terminal session used to get to this point.
 11. If anything goes wrong past me apologises but you're on your own now. :)
 
 ## Setup GPG

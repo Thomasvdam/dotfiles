@@ -130,11 +130,28 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -not -path "$DOTFILES_ROOT/config/*")
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  if [ -d "$DOTFILES_ROOT/config" ]
+  then
+    info 'installing XDG config'
+
+    # Use the XDG_CONFIG_HOME environment variable if set, otherwise use ~/.config
+    # This mirrors what most modern applications do.
+    local xdg_config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+    for src in $(find -H "$DOTFILES_ROOT/config" -name '*.symlink' -not -path '*.git*')
+    do
+      rel="${src#$DOTFILES_ROOT/config/}"
+      dst="$xdg_config_home/${rel%.symlink}"
+      mkdir -p "$(dirname "$dst")"
+      link_file "$src" "$dst"
+    done
+  fi
 }
 
 if [ "$1" == "-g" -o "$1" == "--git" ]

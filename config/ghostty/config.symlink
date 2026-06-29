@@ -1,0 +1,21 @@
+theme = dark:Liquid Carbon,light:One Half Light
+
+font-family = "JetBrainsMono NF"
+font-style-bold = Bold
+font-style-italic = Italic
+font-size = 12
+
+window-step-resize = true
+
+shell-integration = zsh
+
+# Alt+Left/Right: word navigation (Emacs-style escape sequences)
+keybind = alt+left=text:\x1bB
+keybind = alt+right=text:\x1bF
+
+# Cmd+Left/Right: home/end
+keybind = super+left=text:\x1bOH
+keybind = super+right=text:\x1bOF
+
+# Cmd+Backspace: delete to start of line
+keybind = super+backspace=text:\x15
