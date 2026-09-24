@@ -1,3 +1,14 @@
 # Only loaded by rssh. Chezmoi renders this as a standalone Bash rc.
+# A non-login shell does not read these; source the same files a login shell would.
+if [ -r /etc/profile ]; then
+    . /etc/profile || true
+fi
+if [ -r "$HOME/.bash_profile" ]; then
+    . "$HOME/.bash_profile" || true
+elif [ -r "$HOME/.bash_login" ]; then
+    . "$HOME/.bash_login" || true
+elif [ -r "$HOME/.profile" ]; then
+    . "$HOME/.profile" || true
+fi
 {{ include "dot_config/dotfiles/shell/aliases.sh" }}
 {{ include "dot_config/dotfiles/shell/functions.sh" }}

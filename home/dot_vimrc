@@ -1,6 +1,3 @@
-" Load plugins using pathogen
-call pathogen#infect()
-
 " Remap <escape>
 inoremap jk <ESC>
 

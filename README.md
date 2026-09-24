@@ -78,9 +78,9 @@ rssh some-host
 rssh -J jump-host -p 2222 some-host
 ```
 
-Put SSH connection options before the host; the host must be last. `rssh` uses your ordinary SSH configuration and authentication. It sends the rendered Bash rc to `~/.cache/dotfiles/bashrc` on the server, replacing it on each invocation, then opens an interactive Bash session with `bash --noprofile --rcfile ... -i`. The remote side needs Bash and common core utilities. No root, Git, chezmoi, Homebrew, or other personal tooling is required there.
+Put SSH connection options before the host; the host must be last. `rssh` uses your ordinary SSH configuration and authentication. It writes the rendered Bash rc into a new temporary directory on the server (`mktemp -d` under `$TMPDIR` or `/tmp`) on each invocation, then opens an interactive Bash session with `bash --rcfile ... -i`. That file attempts to source the usual login profiles (`/etc/profile`, then the first readable of `~/.bash_profile`, `~/.bash_login`, and `~/.profile`) before the portable aliases and functions. The temporary directory is removed when the session exits. The remote side needs Bash and common core utilities. No root, Git, chezmoi, Homebrew, or other personal tooling is required there.
 
-The upload is private to your remote account and is only loaded by `rssh`. It does not edit `.bashrc`, `.profile`, `.zshrc`, or any other login file. `ssh some-host` remains a normal session. `rssh` does not forward a remote command or support SSH modes that disable an interactive shell. To remove the cached rc, run `ssh some-host 'rm -rf ~/.cache/dotfiles'` after checking that path is yours.
+The upload is private to your remote account and is only loaded by `rssh`. It does not edit `.bashrc`, `.profile`, `.zshrc`, or any other login file. `ssh some-host` remains a normal session. `rssh` does not forward a remote command or support SSH modes that disable an interactive shell.
 
 ## Migrating an existing machine
 
