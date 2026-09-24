@@ -1,0 +1,81 @@
+# Personal shell; rssh uses only the portable files below.
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export EDITOR=vi
+export LESS=-FRX
+export STARSHIP_CONFIG="$HOME/.starship.toml"
+export VOLTA_HOME="$HOME/.volta"
+export GOPATH="$HOME/.go"
+
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+if [ "$(uname -s)" = Darwin ] && [ -d /opt/homebrew/bin ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+if [ -d "$VOLTA_HOME/bin" ]; then
+    export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+if [ -d "$GOPATH/bin" ]; then
+    export PATH="$GOPATH/bin:$PATH"
+fi
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+if tty >/dev/null 2>&1; then
+    export GPG_TTY="$(tty)"
+fi
+
+dotfiles_shell="$HOME/.config/dotfiles/shell"
+. "$dotfiles_shell/aliases.sh"
+. "$dotfiles_shell/functions.sh"
+. "$dotfiles_shell/personal.sh"
+alias reload!='. ~/.zshrc'
+if [ "$(uname -s)" = Darwin ]; then
+    . "$dotfiles_shell/macos.sh"
+fi
+. "$dotfiles_shell/zsh-options.zsh"
+. "$dotfiles_shell/completions.zsh"
+
+for antigen_file in /opt/homebrew/share/antigen/antigen.zsh /usr/local/share/antigen/antigen.zsh; do
+    if [ -f "$antigen_file" ]; then
+        . "$antigen_file"
+        . "$dotfiles_shell/antigen.zsh"
+        break
+    fi
+done
+unset antigen_file
+
+if [ -t 1 ] && command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
+if [ -t 0 ] && command -v fzf >/dev/null 2>&1; then
+    fzf_init=$(fzf --zsh 2>/dev/null) && eval "$fzf_init"
+    unset fzf_init
+fi
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
+if [ -s "$HOME/.bun/_bun" ]; then
+    . "$HOME/.bun/_bun"
+fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+    . "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+    . "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+# Keep the previous local hook working during migration.
+if [ -f "$HOME/.zshlocals" ]; then
+    . "$HOME/.zshlocals"
+fi
+if [ -f "$HOME/.config/dotfiles/local.sh" ]; then
+    . "$HOME/.config/dotfiles/local.sh"
+fi
+
+set_window_title() {
+    printf '\033]0; %s \007' "${PWD:t}"
+}
+precmd_functions+=(set_window_title)
+unset dotfiles_shell

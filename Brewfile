@@ -10,7 +10,7 @@ brew "antigen" # zsh plugin manager
 # Because setting up and managing node versions is a pain
 brew "volta" # Better nvm
 
-brew biome # Performant and configurable linter/formatter with sane defaults
+brew "biome" # Performant and configurable linter/formatter with sane defaults
 
 brew "go"
 brew "graphviz" # Used for memory debugging with Go's pprof
@@ -25,24 +25,23 @@ brew "fzf" # Fuzzy finder
 brew "tealdeer" # Faster but simpler man pages
 
 # GPG tooling
-brew "gpg"
+brew "gnupg"
 brew "pinentry-mac"
 
 ## Casks
 
 # Productivity
-brew "alfred"
-brew "visual-studio-code"
+cask "alfred"
+cask "visual-studio-code"
 cask "ghostty"
-# brew "hammerspoon"
-brew "maccy"
-brew "dropbox"
-brew "todoist"
-brew "google-chrome"
-brew "chrysalis"
-brew "iina"
+# cask "hammerspoon"
+cask "maccy"
+cask "dropbox"
+cask "todoist-app"
+cask "google-chrome"
+cask "chrysalis"
+cask "iina"
 
 # Messaging
-brew "slack"
-brew "discord"
-
+cask "slack"
+cask "discord"

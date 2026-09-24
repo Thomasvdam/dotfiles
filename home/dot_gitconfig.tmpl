@@ -1,0 +1,30 @@
+# Identity, signing key, and credential helper belong in ~/.gitconfig.local.
+[include]
+    path = ~/.gitconfig.local
+[hub]
+    protocol = https
+[color]
+    status = auto
+    branch = auto
+    ui = true
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+{{ if eq .chezmoi.os "darwin" }}
+    pager = delta
+{{ end }}
+[alias]
+    logd = log --all --pretty=format:'%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s' --date=format:'%a %b %d'
+    glog = log --all --decorate --oneline --graph
+[pull]
+    ff = only
+[init]
+    defaultBranch = main
+{{ if eq .chezmoi.os "darwin" }}
+[commit]
+    gpgsign = true
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+{{ end }}
+[rebase]
+    autoSquash = true

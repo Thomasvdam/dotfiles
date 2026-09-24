@@ -1,0 +1,39 @@
+" Load plugins using pathogen
+call pathogen#infect()
+
+" Remap <escape>
+inoremap jk <ESC>
+
+" Change leader from '\' to spacebar
+let mapleader = "\space"
+
+" Indentation settings
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Some default settings
+syntax on
+set encoding=utf8
+set number
+set title
+
+" Allow pasting from system clipboard
+set clipboard=unnamed
+
+" Allow backspace for indents and linebreaks
+set backspace=indent,eol,start
+
+" Disable default folding for markdown plugin
+let g:vim_markdown_folding_disabled = 1
+
+" Sensible defaults for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

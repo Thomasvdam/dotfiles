@@ -1,0 +1,13 @@
+[user]
+    name = Your Name
+    email = you@example.com
+
+# On a machine with a configured signing key:
+# [user]
+#     signingkey = YOUR_KEY_ID
+# [commit]
+#     gpgsign = true
+
+# On macOS, after installing Git's osxkeychain helper:
+# [credential]
+#     helper = osxkeychain

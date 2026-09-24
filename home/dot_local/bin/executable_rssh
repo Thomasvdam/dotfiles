@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Usage: rssh [ssh connection options] host
+set -euo pipefail
+
+if [ "$#" -eq 0 ]; then
+    printf 'Usage: rssh [ssh connection options] host\n' >&2
+    exit 2
+fi
+
+case "${!#}" in
+    -*) printf 'rssh: put the host last\n' >&2; exit 2 ;;
+esac
+
+shell_dir="$HOME/.config/dotfiles"
+remote_header="$shell_dir/remote/bashrc"
+if [ ! -r "$remote_header" ]; then
+    printf 'rssh: missing %s; apply your dotfiles first\n' "$remote_header" >&2
+    exit 1
+fi
+
+# The remote command is static. SSH resolves the host and options using the
+# normal SSH configuration; no host-derived string is evaluated as shell code.
+upload_command=$(cat <<'EOF'
+bash -c 'umask 077; dir="$HOME/.cache/dotfiles"; mkdir -p "$dir" || exit; tmp=$(mktemp "$dir/bashrc.XXXXXX") || exit; cleanup() { rm -f -- "$tmp"; }; trap cleanup EXIT; cat > "$tmp" || exit; mv -f "$tmp" "$dir/bashrc"'
+EOF
+)
+
+if ! ssh "$@" "$upload_command" < "$remote_header"; then
+    printf 'rssh: could not upload the remote shell config\n' >&2
+    exit 1
+fi
+
+ssh -tt "$@" 'bash -c '\''exec bash --noprofile --rcfile "$HOME/.cache/dotfiles/bashrc" -i'\'''

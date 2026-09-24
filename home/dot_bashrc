@@ -1,0 +1,44 @@
+# Personal Bash shell. rssh uses its own rc and does not load this file.
+case $- in *i*) ;; *) return ;; esac
+
+export EDITOR=vi
+export LESS=-FRX
+export STARSHIP_CONFIG="$HOME/.starship.toml"
+export VOLTA_HOME="$HOME/.volta"
+export GOPATH="$HOME/.go"
+
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$VOLTA_HOME/bin" ]; then
+    export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+if [ -d "$GOPATH/bin" ]; then
+    export PATH="$GOPATH/bin:$PATH"
+fi
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+if tty >/dev/null 2>&1; then
+    export GPG_TTY="$(tty)"
+fi
+
+dotfiles_shell="$HOME/.config/dotfiles/shell"
+. "$dotfiles_shell/aliases.sh"
+. "$dotfiles_shell/functions.sh"
+. "$dotfiles_shell/personal.sh"
+if [ "$(uname -s)" = Darwin ]; then
+    . "$dotfiles_shell/macos.sh"
+fi
+
+if [ -t 1 ] && command -v starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+fi
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
+if [ -f "$HOME/.config/dotfiles/local.sh" ]; then
+    . "$HOME/.config/dotfiles/local.sh"
+fi
+unset dotfiles_shell
