@@ -1,0 +1,4 @@
+{{- $choices := list "workstation" "server" -}}
+{{- $role := promptChoiceOnce . "role" "What kind of personal machine is this?" $choices -}}
+[data]
+    role = {{ $role | quote }}

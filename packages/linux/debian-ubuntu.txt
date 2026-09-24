@@ -1,9 +1,0 @@
-# Owned Debian/Ubuntu machines only. Install explicitly with install-apt.sh.
-git
-vim
-zsh
-curl
-rsync
-ripgrep
-fzf
-gnupg
