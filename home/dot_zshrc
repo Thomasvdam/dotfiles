@@ -64,6 +64,9 @@ fi
 if [ -f "$HOME/.config/dotfiles/local.sh" ]; then
     . "$HOME/.config/dotfiles/local.sh"
 fi
+if [ "${TERM_PROGRAM:-}" = ghostty ] && [ -t 1 ]; then
+    . "$dotfiles_shell/ghostty.zsh"
+fi
 
 set_window_title() {
     printf '\033]0; %s \007' "${PWD:t}"
