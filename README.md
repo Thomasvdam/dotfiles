@@ -26,7 +26,7 @@ Chezmoi reads the `home/` directory (selected by `.chezmoiroot`). Its `dot_` fil
 
 5. Optionally run `macos/set-defaults.sh` from the repository root (the parent of `chezmoi source-path`) after reviewing its system changes. Install your preferred font separately if Ghostty cannot find `JetBrainsMono NF`.
 
-The workstation list includes GUI casks; a Mac with the `server` role gets only the common command-line packages and no Ghostty or Hammerspoon config. For apps with their own updater, the casks are a convenient first install and the app owns subsequent updates. `--no-upgrade` prevents `brew bundle` from upgrading already installed packages. Bun and Codex are intentionally absent from the package list: install each through its chosen vendor or package manager and use that same channel for updates. Open a new shell after applying. Package installation and macOS defaults are never automatic during `chezmoi apply` or `chezmoi update`.
+The workstation list includes GUI casks; a Mac with the `server` role gets only the common command-line packages and no Ghostty or Hammerspoon config. For apps with their own updater, the casks are a convenient first install and the app owns subsequent updates. `--no-upgrade` prevents `brew bundle` from upgrading already installed packages. Starship and Bun use the publisher installer described below. Codex remains a separate install. Open a new shell after applying. Package installation and macOS defaults are never automatic during `chezmoi apply` or `chezmoi update`.
 
 ## Fresh owned Linux server
 
@@ -50,6 +50,18 @@ The workstation list includes GUI casks; a Mac with the `server` role gets only 
    Other distributions need their own package list. A Linux `workstation` adds Go and Graphviz to this list; `server` keeps the smaller base. Shell startup checks for optional programs, so installing this list is not required for a usable shell.
 
 The managed `~/.bashrc` loads the shared aliases and functions. Zsh is also supported if you choose it as your interactive shell. This setup does not change your login shell, install services, or provision the VPS.
+
+## Tools installed outside package managers
+
+On an owned Mac or Linux machine, install selected tools explicitly from the repository root (the parent of `chezmoi source-path`):
+
+```sh
+./tools/install.sh rustup starship bun
+```
+
+The script downloads each publisher's installer over HTTPS and runs it as your user. Review [Rustup's](https://rustup.rs/), [Starship's](https://starship.rs/), and [Bun's](https://bun.sh/docs/installation) installers before running the command. It installs Rustup under `~/.cargo`, Starship in `~/.local/bin`, and Bun under `~/.bun`; the managed shells already load those paths. Linux needs `unzip` for Bun. Run any subset of the names, in any order. Existing commands are skipped, including installations from Homebrew, so the script will not replace their update channel. Open a new shell after installation. The managed `~/.bunfig.toml` sets a seven-day minimum release age for Bun packages.
+
+For updates, keep using the original install channel: `rustup update` for Rust, `bun upgrade` for Bun, and the [Starship installer](https://starship.rs/faq/) again for a directly installed Starship. If a tool was installed with Homebrew, update it with Homebrew instead. These tool installs and updates never run during `chezmoi apply` or `chezmoi update`.
 
 ## Keeping owned machines in sync
 
@@ -82,8 +94,6 @@ Put SSH connection options before the host; the host must be last. `rssh` uses y
 
 The upload is private to your remote account and is only loaded by `rssh`. It does not edit `.bashrc`, `.profile`, `.zshrc`, or any other login file. `ssh some-host` remains a normal session. `rssh` does not forward a remote command or support SSH modes that disable an interactive shell.
 
-## Migrating an existing machine
-
-The old [symlink installer](bootstrap.sh) and its source files remain in the repository because current home-directory symlinks may still point at them. Do not delete that checkout until the machine has been switched to chezmoi. Initialize chezmoi from this repository, choose a role, inspect `chezmoi diff`, and use `chezmoi apply --interactive` to replace the old links. Chezmoi will ask about existing targets; review each conflict rather than forcing all changes. Existing `~/.gitconfig.local` and `~/.zshlocals` stay outside chezmoi and continue to work. Existing chezmoi installations without a role keep the prior default (Mac workstation or Linux server) until a role is set explicitly in `~/.config/chezmoi/chezmoi.toml`.
-
-The legacy Vim plugin directory is still linked from the repo because it contains Git submodules. `chezmoi init` normally checks out submodules; if Vim plugins are missing, run `git -C "$(dirname "$(chezmoi source-path)")" submodule update --init`.
+TODO:
+- Check other existing dotfiles/config files
+- Decide whether other tools such as Codex or Claude need publisher installers.
