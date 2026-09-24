@@ -9,6 +9,9 @@ export GOPATH="$HOME/.go"
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
+if [ -d "$HOME/.bun/bin" ]; then
+    export PATH="$HOME/.bun/bin:$PATH"
+fi
 if [ "$(uname -s)" = Darwin ] && [ -d /opt/homebrew/bin ]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
