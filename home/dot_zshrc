@@ -36,15 +36,6 @@ fi
 . "$dotfiles_shell/zsh-options.zsh"
 . "$dotfiles_shell/completions.zsh"
 
-for antigen_file in /opt/homebrew/share/antigen/antigen.zsh /usr/local/share/antigen/antigen.zsh; do
-    if [ -f "$antigen_file" ]; then
-        . "$antigen_file"
-        . "$dotfiles_shell/antigen.zsh"
-        break
-    fi
-done
-unset antigen_file
-
 if [ -t 1 ] && command -v starship >/dev/null 2>&1; then
     eval "$(starship init zsh)"
 fi
