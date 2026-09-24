@@ -10,3 +10,7 @@ export PATH="$GOPATH/bin:$PATH"
 # Add rust tooling to path
 . "$HOME/.cargo/env"
 
+# >>> Codex installer >>>
+export PATH="/Users/thomasvandam/.local/bin:$PATH"
+# <<< Codex installer <<<
+

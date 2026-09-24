@@ -1,4 +1,10 @@
-{{- if ne .chezmoi.os "darwin" }}
+{{- $role := index . "role" | default (ternary "workstation" "server" (eq .chezmoi.os "darwin")) -}}
+{{- if or (ne .chezmoi.os "darwin") (ne $role "workstation") }}
 .hammerspoon
 .config/ghostty
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
+.config/dotfiles/packages/Brewfile
+{{- else }}
+.config/dotfiles/packages/apt.txt
 {{- end }}

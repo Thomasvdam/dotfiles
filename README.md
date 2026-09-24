@@ -1,13 +1,13 @@
 # Dotfiles
 
-This repository uses [chezmoi](https://www.chezmoi.io/) for persistent configuration on my own Macs and Linux machines. A separate `rssh` command gives me a small, opt-in Bash environment on shared servers. Normal SSH sessions are unchanged.
+This repository uses [chezmoi](https://www.chezmoi.io/) for persistent configuration on my own Macs and Linux machines.
 
-Chezmoi reads the `home/` directory (selected by `.chezmoiroot`). Its `dot_` files become dotfiles, `executable_` installs `rssh` as an executable, and `.chezmoiignore` excludes Mac-only files on Linux. The rest of the repository contains package lists, optional scripts, and older symlink sources kept for migration.
+Chezmoi reads the `home/` directory (selected by `.chezmoiroot`). Its `dot_` files become dotfiles, `executable_` installs scripts as executables, and `.chezmoiignore` selects OS- and role-specific files. On initialization, chezmoi asks whether this owned machine is a `workstation` or `server` and saves the answer in its local config. Package lists are rendered into `~/.config/dotfiles/packages/`; installing packages remains a separate step. Older symlink sources remain for migration.
 
 ## Fresh personal Mac
 
 1. Set up SSH access to GitHub, then [install chezmoi](https://www.chezmoi.io/install/) (Homebrew's `brew install chezmoi` is also fine if Homebrew is already installed).
-2. Clone the repo into chezmoi's default source directory and inspect what will be installed:
+2. Clone the repo into chezmoi's default source directory. Choose `workstation` when prompted, then inspect what will be installed:
 
    ```sh
    chezmoi init git@github.com:Thomasvdam/dotfiles.git
@@ -19,18 +19,18 @@ Chezmoi reads the `home/` directory (selected by `.chezmoiroot`). Its `dot_` fil
 4. Optionally install [Homebrew](https://brew.sh/) and the curated Mac packages. Review the list before running it:
 
    ```sh
-   repo=$(dirname "$(chezmoi source-path)")
-   brew bundle check --file "$repo/Brewfile"
-   brew bundle --file "$repo/Brewfile"
+   cat ~/.config/dotfiles/packages/Brewfile
+   brew bundle check --file ~/.config/dotfiles/packages/Brewfile
+   brew bundle --no-upgrade --file ~/.config/dotfiles/packages/Brewfile
    ```
 
 5. Optionally run `macos/set-defaults.sh` from the repository root (the parent of `chezmoi source-path`) after reviewing its system changes. Install your preferred font separately if Ghostty cannot find `JetBrainsMono NF`.
 
-Open a new shell after applying. Package installation and macOS defaults are never automatic during `chezmoi apply` or `chezmoi update`.
+The workstation list includes GUI casks; a Mac with the `server` role gets only the common command-line packages and no Ghostty or Hammerspoon config. For apps with their own updater, the casks are a convenient first install and the app owns subsequent updates. `--no-upgrade` prevents `brew bundle` from upgrading already installed packages. Bun and Codex are intentionally absent from the package list: install each through its chosen vendor or package manager and use that same channel for updates. Open a new shell after applying. Package installation and macOS defaults are never automatic during `chezmoi apply` or `chezmoi update`.
 
 ## Fresh owned Linux server
 
-1. Install chezmoi using its [binary installer](https://www.chezmoi.io/install/) or your distribution's package manager. Clone and inspect as above:
+1. Install chezmoi using its [binary installer](https://www.chezmoi.io/install/) or your distribution's package manager. Choose `server` when prompted, then inspect as above:
 
    ```sh
    chezmoi init git@github.com:Thomasvdam/dotfiles.git
@@ -42,12 +42,12 @@ Open a new shell after applying. Package installation and macOS defaults are nev
 3. For an owned Debian/Ubuntu machine, optionally review and install the modest CLI list:
 
    ```sh
+   cat ~/.config/dotfiles/packages/apt.txt
    repo=$(dirname "$(chezmoi source-path)")
-   cat "$repo/packages/linux/debian-ubuntu.txt"
    "$repo/packages/linux/install-apt.sh"
    ```
 
-   Other distributions need their own package list. Shell startup checks for optional programs, so installing this list is not required for a usable shell.
+   Other distributions need their own package list. A Linux `workstation` adds Go and Graphviz to this list; `server` keeps the smaller base. Shell startup checks for optional programs, so installing this list is not required for a usable shell.
 
 The managed `~/.bashrc` loads the shared aliases and functions. Zsh is also supported if you choose it as your interactive shell. This setup does not change your login shell, install services, or provision the VPS.
 
@@ -65,8 +65,7 @@ chezmoi update
 
 - `~/.gitconfig.local` holds Git identity, signing key, and credential helper. The shared `.gitconfig` includes it.
 - `~/.config/dotfiles/local.sh` is an optional, untracked shell hook sourced on owned machines. Keep it compatible with Bash and Zsh. The older `~/.zshlocals` hook still works in Zsh during migration.
-- Mac-only files are selected by chezmoi's `.chezmoiignore`; Linux receives the shared files. For machine-specific nonsecret files that should travel through Git, add a narrowly scoped chezmoi template or ignore rule rather than hardcoding a home path into shared config.
-- Never put tokens, private keys, or machine-local state in the source directory. The Vim `.netrwhist`, compiled Zsh files, logs, and `.DS_Store` are ignored.
+- The local `role` is `workstation` or `server`; the OS comes from chezmoi. Mac workstation-only files are selected by `.chezmoiignore`. For machine-specific nonsecret files that should travel through Git, add a narrowly scoped chezmoi template or ignore rule rather than hardcoding a home path into shared config. The role is stored locally in `~/.config/chezmoi/chezmoi.toml` under `[data]`. Edit that value, review `chezmoi diff`, then run `chezmoi apply` to change roles. Chezmoi does not delete files that become ignored; remove old Mac GUI config manually if you switch an existing workstation to `server`.
 
 The portable shell subset is in `home/dot_config/dotfiles/shell/aliases.sh` and `functions.sh`. Personal-only tool aliases and Mac-specific commands are in adjacent files. `home/dot_zshrc` and `home/dot_bashrc` load them on owned machines. Chezmoi renders the same portable files into one standalone remote Bash rc.
 
@@ -85,8 +84,6 @@ The upload is private to your remote account and is only loaded by `rssh`. It do
 
 ## Migrating an existing machine
 
-The old [symlink installer](bootstrap.sh) and its source files remain in the repository because current home-directory symlinks may still point at them. Do not delete that checkout until the machine has been switched to chezmoi. Initialize chezmoi from this repository, inspect `chezmoi diff`, and use `chezmoi apply --interactive` to replace the old links. Chezmoi will ask about existing targets; review each conflict rather than forcing all changes. Existing `~/.gitconfig.local` and `~/.zshlocals` stay outside chezmoi and continue to work.
+The old [symlink installer](bootstrap.sh) and its source files remain in the repository because current home-directory symlinks may still point at them. Do not delete that checkout until the machine has been switched to chezmoi. Initialize chezmoi from this repository, choose a role, inspect `chezmoi diff`, and use `chezmoi apply --interactive` to replace the old links. Chezmoi will ask about existing targets; review each conflict rather than forcing all changes. Existing `~/.gitconfig.local` and `~/.zshlocals` stay outside chezmoi and continue to work. Existing chezmoi installations without a role keep the prior default (Mac workstation or Linux server) until a role is set explicitly in `~/.config/chezmoi/chezmoi.toml`.
 
 The legacy Vim plugin directory is still linked from the repo because it contains Git submodules. `chezmoi init` normally checks out submodules; if Vim plugins are missing, run `git -C "$(dirname "$(chezmoi source-path)")" submodule update --init`.
-
-The older `install.sh`, `homebrew/install.sh`, and `rust/install.sh` are not part of the new workflow. The `scripts/backup.sh` and `kaleidoscope/` files are separate manual utilities, not installed by chezmoi. [GPG notes](docs/gpg.md) are retained as historical reference.
