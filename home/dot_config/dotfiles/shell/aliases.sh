@@ -14,3 +14,10 @@ alias gpo='git push origin HEAD -u'
 alias gcma='git commit --amend'
 alias gcmf='git commit --fixup'
 alias week='date +%V'
+
+# Only add the .., ..., .... aliases if zoxide is not installed.
+if ! command -v zoxide >/dev/null 2>&1; then
+    alias ..='cd ..'
+    alias ...='cd ../..'
+    alias ....='cd ../../..'
+fi
