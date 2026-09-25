@@ -28,6 +28,8 @@ Chezmoi reads the `home/` directory (selected by `.chezmoiroot`). Its `dot_` fil
 
 The workstation list includes GUI casks; a Mac with the `server` role gets only the common command-line packages and no Ghostty or Hammerspoon config. For apps with their own updater, the casks are a convenient first install and the app owns subsequent updates. `--no-upgrade` prevents `brew bundle` from upgrading already installed packages. Starship, Bun, Codex, and Claude Code use the publisher installers described below. Zoxide and Delta stay in Homebrew on macOS. Open a new shell after applying. Package installation and macOS defaults are never automatic during `chezmoi apply` or `chezmoi update`.
 
+After installing LuLu, open it from Applications and follow its prompts to approve the System Extension and Network Filter in macOS System Settings. The cask places the app in Applications, but macOS requires these approvals before its firewall can run.
+
 Zsh loads `zsh-autosuggestions` when the Homebrew package is installed. It offers a dimmed match from command history as you type; press Right Arrow at the end of the line to accept it. Install it with the Mac package list above, or run `brew install zsh-autosuggestions` on an existing machine.
 
 ## Fresh owned Linux server
