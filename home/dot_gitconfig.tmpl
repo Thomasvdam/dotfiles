@@ -10,9 +10,7 @@
 [core]
     excludesfile = ~/.gitignore
     editor = vim
-{{ if eq .chezmoi.os "darwin" }}
     pager = delta
-{{ end }}
 [alias]
     logd = log --all --pretty=format:'%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s' --date=format:'%a %b %d'
     glog = log --all --decorate --oneline --graph
@@ -23,8 +21,8 @@
 {{ if eq .chezmoi.os "darwin" }}
 [commit]
     gpgsign = true
+{{ end }}
 [interactive]
     diffFilter = delta --color-only --features=interactive
-{{ end }}
 [rebase]
     autoSquash = true
