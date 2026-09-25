@@ -5,7 +5,6 @@ elif [ "$(uname -s)" = Darwin ]; then
     alias ls='command ls -G'
 fi
 
-
 if command -v eza >/dev/null 2>&1; then
     alias l='eza -lhF'
     alias la='eza -lhaF'
