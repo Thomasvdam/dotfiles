@@ -14,6 +14,10 @@ fi
 if command -v bat >/dev/null 2>&1; then
     alias cat='bat'
 fi
+if [ "$(uname -s)" = Linux ] && [ -r /etc/os-release ] &&
+    grep -Eq '^ID="?ubuntu"?$' /etc/os-release && command -v fdfind >/dev/null 2>&1; then
+    alias fd='fdfind'
+fi
 if command -v zoxide >/dev/null 2>&1; then
     alias ..='z ..'
     alias ...='z ../..'
