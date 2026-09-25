@@ -71,6 +71,15 @@ if [ "${TERM_PROGRAM:-}" = ghostty ] && [ -t 1 ]; then
     . "$dotfiles_shell/ghostty.zsh"
 fi
 
+# Load after other shell integrations so its widgets wrap the final bindings.
+for autosuggestions_file in /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh; do
+    if [ -f "$autosuggestions_file" ]; then
+        . "$autosuggestions_file"
+        break
+    fi
+done
+unset autosuggestions_file
+
 set_window_title() {
     printf '\033]0; %s \007' "${PWD:t}"
 }
